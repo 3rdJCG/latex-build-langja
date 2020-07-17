@@ -1,0 +1,71 @@
+%!TEX encoding = UTF-8
+% +++
+% latex = "uplatex"
+% +++
+% --build requirements-------------------
+% |	command	: uplatex					|
+% |	Fonts	: NotoSansCJKjp				|
+% |			  NotoSerifCJKjp			|
+% ---------------------------------------
+\documentclass[uplatex,dvipdfmx]{jsarticle}
+\usepackage{graphicx}
+
+\usepackage{siunitx}		%for use si unit
+\usepackage{url}
+\usepackage{here}			%for use figure here
+\usepackage{tikz}			%for use TikZ package
+\usepackage{pgfplots}		%for use PGFplots
+\usepackage{dcolumn}		%for use significant figures in the table
+\usepackage{csvsimple}		%for import csv files
+\usepackage[RPvoltages,americanresistors,americaninductors,europeanvoltage,americancurrents]{circuitikz}
+
+\usepackage[noto]{pxchfon}	%for use Noto fonts
+
+\tikzset{% tikz style set
+  	pointtype triangle/.style={mark=triangle*,mark size=4pt},
+  	every mark/.style={fill=white,solid},
+  	south west label/.style={
+		matrix,matrix of nodes,
+		anchor=south west,at={(rel axis cs:0.01,0.01)},
+		nodes={anchor=west,inner sep=0},
+  	},
+}
+
+\pgfplotsset{% graph style set
+    table/col sep=comma, % Use CSV files
+  	compat=1.12,
+  	major tick length=0.2cm,
+  	minor tick length=0.1cm,
+  	every axis/.style={semithick},
+  	tick style={semithick,black},
+  	legend cell align=left,
+  	legend image code/.code={%
+		\draw[mark repeat=2,mark phase=2,#1]
+	  	plot coordinates {(0cm,0cm) (0.5cm,0cm) (1.0cm,0cm)};
+  	},
+  	log number format basis/.code 2 args={
+	\pgfmathsetmacro\e{#2}
+	\pgfmathparse{#2==0}\ifnum\pgfmathresult>0{1}\else
+	\pgfmathparse{#2==1}\ifnum\pgfmathresult>0{10}\else
+	{$#1^{\pgfmathprintnumber{\e}}$}\fi\fi},
+}
+
+% CircuiTikz settings
+\ctikzset{bipoles/resistor/height=0.25}
+\ctikzset{bipoles/resistor/width=0.65}
+
+% for use paste soucecode
+\usepackage{listings}
+\lstnewenvironment{soucecode}[1][]
+    {\lstset{
+        frame=single,
+        basicstyle=\ttfamily,
+        numbers=left,
+        numbersep=10pt,
+        tabsize=2,
+        extendedchars=true,
+        xleftmargin=17pt,
+        framexleftmargin=17pt,
+        #1
+    }
+}{}
