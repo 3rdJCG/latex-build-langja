@@ -19,11 +19,11 @@ jobs:
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
     - name: Compile LaTeX document
       uses: xu-cheng/texlive-action/full@v1
-        with:
-          run: |
-            apk add font-noto-cjk-extra
-            sudo mktexlsr
-            latexmk -r .LATEXBUILD
+      with:
+        run: |
+          apk add font-noto-cjk-extra
+          sudo mktexlsr
+          latexmk -r .LATEXBUILD
     - name: Commit files
       run: |
         git add main.pdf
