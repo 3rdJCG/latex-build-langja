@@ -21,6 +21,7 @@ jobs:
       uses: dante-ev/latex-action@master
       with:
           root_file: main.tex
+          args: -r .LATEXBUILD
     - name: Commit files
       run: |
         git config --local user.email "3rdJCG@gmail.com"
