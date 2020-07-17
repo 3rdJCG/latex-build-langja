@@ -24,6 +24,7 @@ jobs:
           args: -r .LATEXBUILD
     - name: Commit files
       run: |
+        git add main.pdf
         git config --local user.email "3rdJCG@gmail.com"
         git config --local user.name "3rdJCG"
         git commit -m "main.pdf typeset" -a
