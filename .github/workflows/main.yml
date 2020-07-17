@@ -21,6 +21,7 @@ jobs:
       uses: dante-ev/latex-action@master
       with:
           root_file: main.tex
+          extra_system_packages: fonts-noto-cjk
           args: -r .LATEXBUILD
     - name: Commit files
       run: |
