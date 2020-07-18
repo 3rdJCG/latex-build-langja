@@ -24,7 +24,7 @@ jobs:
           echo "STARTING BUILD"
           cd /opt/texlive/texmf-local
           pwd
-          mkdir -v -p fonts/opentype/google/notosanscjk/ fonts/opentype/google/notoserifscjk/
+          mkdir -v -p fonts/opentype/google/notosanscjk/ fonts/opentype/google/notoserifcjk/
           wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
           wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJKjp-hinted.zip
           unzip NotoSansCJKjp-hinted.zip -d fonts/opentype/google/notosanscjk/
