@@ -28,7 +28,6 @@ jobs:
           wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJKjp-hinted.zip
           unzip NotoSansCJKjp-hinted.zip -d fonts/opentype/google/notosanscjk/
           unzip NotoSerifCJKjp-hinted.zip -d fonts/opentype/google/notoserifcjk/
-          rm *.zip
           mktexlsr
           cd ../../../
           latexmk -r .LATEXBUILD
