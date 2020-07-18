@@ -26,9 +26,12 @@ jobs:
           mkdir -v -p fonts/opentype/google/notosanscjk/ fonts/opentype/google/notoserifcjk/
           wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
           wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJKjp-hinted.zip
-        run: |
           unzip NotoSansCJKjp-hinted.zip -d fonts/opentype/google/notosanscjk/
           unzip NotoSerifCJKjp-hinted.zip -d fonts/opentype/google/notoserifcjk/
+    - name: Build LaTeX document
+      uses: xu-cheng/texlive-action/full@v1
+      with:
+        run: |
           mktexlsr
           cd ../../../
           latexmk -r .LATEXBUILD
