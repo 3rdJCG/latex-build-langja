@@ -21,11 +21,9 @@ jobs:
       uses: xu-cheng/texlive-action/full@v1
       with:
         run: |
+          echo "STARTING LTXBUILD"
           apk add font-noto-cjk-extra
-    - name: Compile LaTeX document
-      uses: xu-cheng/texlive-action/full@v1
-      with:
-        run: |
+          kpsewhich NotoSansCJKjp-Black.otf
           mktexlsr
           latexmk -r .LATEXBUILD
     - name: Commit files
