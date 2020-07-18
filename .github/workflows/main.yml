@@ -22,8 +22,9 @@ jobs:
       with:
         run: |
           echo "STARTING BUILD"
-          cd "$(kpsewhich -var-value=TEXMFLOCAL)"
-          mkdir -p fonts/opentype/google/notosanscjk/ fonts/opentype/google/notoserifscjk/
+          cd /opt/texlive/texmf-local
+          pwd
+          mkdir -v -p fonts/opentype/google/notosanscjk/ fonts/opentype/google/notoserifscjk/
           wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
           wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJKjp-hinted.zip
           unzip NotoSansCJKjp-hinted.zip -d fonts/opentype/google/notosanscjk/
@@ -31,6 +32,7 @@ jobs:
           rm *.zip
           mktexlsr
           cd ~
+          pwd
           latexmk -r .LATEXBUILD
     - name: Commit files
       run: |
