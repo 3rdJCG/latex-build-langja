@@ -22,7 +22,7 @@ jobs:
       with:
         run: |
           apk add font-noto-cjk-extra
-          sudo mktexlsr
+          mktexlsr
           latexmk -r .LATEXBUILD
     - name: Commit files
       run: |
