@@ -24,6 +24,7 @@ jobs:
           echo "STARTING LTXBUILD"
           apk add font-noto-cjk-extra
           kpsewhich NotoSansCJKjp-Black.otf
+          kpsewhich -var-value=TEXMFLOCAL
           mktexlsr
           latexmk -r .LATEXBUILD
     - name: Commit files
