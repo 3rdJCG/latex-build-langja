@@ -2,40 +2,25 @@
 % +++
 % latex = "uplatex"
 % +++
-\documentclass[uplatex,dvipdfmx,b5j,openany]{jsbook}
+% --build requirements-------------------
+% |	command	: uplatex					|
+% |	Fonts	: NotoSansCJKjp				|
+% |			  NotoSerifCJKjp			|
+% ---------------------------------------
+\documentclass[uplatex,dvipdfmx]{jsarticle}
 \usepackage{graphicx}
 
 \usepackage{siunitx}		%for use si unit
+\usepackage{url}
 \usepackage{here}			%for use figure here
 \usepackage{tikz}			%for use TikZ package
+\usetikzlibrary{calc,positioning}
 \usepackage{pgfplots}		%for use PGFplots
 \usepackage{dcolumn}		%for use significant figures in the table
 \usepackage{csvsimple}		%for import csv files
 \usepackage[RPvoltages,americanresistors,americaninductors,europeanvoltage,americancurrents]{circuitikz}
+
 \usepackage[noto]{pxchfon}	%for use Noto fonts
-
-% To out put TikZ logo
-\usepackage{bxtexlogo}
-\bxtexlogoimport{TikZ}
-
-\usepackage{wrapfig}
-\usepackage[top=1.5cm, bottom=1.5cm, left=2.5cm, right=2cm]{geometry}
-
-% framed settings
-\usepackage{framed}
-\definecolor{shadecolor}{gray}{0.80}
-
-% mdframed settings
-\usepackage[xcolor,framemethod=tikz]{mdframed}
-\usetikzlibrary{shadows}
-\mdfdefinestyle{bash}{linecolor=black,linewidth=0.5pt}
-\mdfdefinestyle{shadow}{linewidth=0pt,backgroundcolor=black!15}
-
-\usepackage[customcolors]{hf-tikz}
-\hfsetfillcolor{black!5}
-\hfsetbordercolor{black!50}
-
-\usepackage{uri}
 
 \tikzset{% tikz style set
   	pointtype triangle/.style={mark=triangle*,mark size=4pt},
@@ -65,3 +50,19 @@
 	\pgfmathparse{#2==1}\ifnum\pgfmathresult>0{10}\else
 	{$#1^{\pgfmathprintnumber{\e}}$}\fi\fi},
 }
+
+% for use paste soucecode
+\usepackage{listings}
+\lstnewenvironment{soucecode}[1][]
+    {\lstset{
+        frame=single,
+        basicstyle=\ttfamily,
+        numbers=left,
+        numbersep=10pt,
+        tabsize=2,
+        extendedchars=true,
+        xleftmargin=17pt,
+        framexleftmargin=17pt,
+        #1
+    }
+}{}
