@@ -1,4 +1,4 @@
-FROM danteev/texlive:latest
+FROM 3rdjcg/latex-ci-notojp:latest
 
 WORKDIR /root
 
