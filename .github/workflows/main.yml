@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     steps:
+    - runs-on: ubuntu-latest
     - name: LaTeX setup
       uses: docker://3rdjcg/latex-ci-notojp:latest
     - uses: actions/checkout@master
