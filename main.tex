@@ -9,30 +9,59 @@
 % ---------------------------------------
 \documentclass[uplatex,dvipdfmx]{jsarticle}
 
-\usepackage[noto]{pxchfon}	%for use Noto fonts
-
+\input{settings.tex}
 
 \begin{document}
 
-\title{情報科学レポート}
+\title{ビルドテスト}
 \author{ななしのごんべ}
 \maketitle
 
 \section{はじめに}
-	この文書は，ごく基本的なレポートや論文の例を示すものです。
-	実際にこのソースを入力してタイプセット（コンパイル）し，
-	タイトル，著者名，本文，見出し，箇条書きがどのように表示されるかを
-	確認してみましょう。
+	この文書はビルドテスト用文書です。
 
-\section{見出し}
-	この文書の先頭にはタイトル，著者名，日付が出力されています。
-	特定の日付を指定することもできます。
+\section{図のテスト}
+	\begin{figure}[H]
+		\centering
+		\begin{circuitikz}[scale=1.1,/tikz/circuitikz/bipoles/length=1.2cm]
+			\draw (0,0)
+			node[op amp](OPA){};
 
-	そして，セクションの見出しが出力されています。
-	セクションの番号は自動的に付きます。
+			\draw (OPA.out)
+			to[short,-] ++(1,0)                     coordinate(Vo)
+			to[open,v^=$V_o$,o-o] ++(0,-1)          coordinate(VoGND)
+			node[ground](GND){};
 
-\section{箇条書き}
-	以下は箇条書きの例です。これは番号を振らない箇条書きです。
+			\draw (OPA.-)
+			to[short,-] ++(-0.5,0)
+			to[R,l_=$R_1$,-] ++(-1,0)
+			to[short,-] ++(-0.5,0)                  coordinate(Vi);
+
+			\draw let \p1=(Vi),\p2=(VoGND) in (Vi)
+			to[open,v=$V_i$,o-o] ++($(0,\y2)-(0,\y1)$)
+			node[ground](GND){};
+
+			\draw let \p1=(OPA.-),\p2=(OPA.out) in (OPA.-)
+			to[short,*-] ++(0,1)                    coordinate(overOPAin)
+			to[R,l=$R_2$,-] ++($(\x2,0)-(\x1,0)$)   coordinate(overOPAout)
+			to[short,-*] (OPA.out);
+
+			\draw let \p1=(overOPAin),\p2=(overOPAout) in (overOPAin)
+			to[short,*-] ++(0,1)
+			to[C,l=$C$] ++($(\x2,0)-(\x1,0)$)
+			to[short,-*] (overOPAout);
+
+			\draw let \p1=(OPA.+),\p2=(VoGND) in (OPA.+)
+			to[short,-] ++($(0,\y2)-(0,\y1)$)
+			node[ground](GND){};
+
+		\end{circuitikz}
+		\caption{アクティブローパスフィルタ}
+		\label{sch:activeLPF}
+	\end{figure}
+
+\section{箇条書きのテスト}
+	これは番号を振らない箇条書きです。
 	\begin{itemize}
 		\item ちゃお
 		\item りぼん
@@ -44,9 +73,5 @@
 		\item 鷹
 		\item なすび
 	\end{enumerate}
-
-\section{おわりに}
-	これは一段組の例ですが，二段組に変更することもできます。
-	解説文を読んで，このソースをいろいろと変更してみましょう。
 
 \end{document}
