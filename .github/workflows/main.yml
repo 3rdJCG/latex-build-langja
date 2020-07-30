@@ -21,6 +21,7 @@ jobs:
       uses: .github/actions/latex-build-langja
       with:
         root_file: main.tex
+        args: -r .LATEXBUILD
     - name: Commit files
       run: |
         git add main.pdf
