@@ -21,7 +21,7 @@ jobs:
       uses: ./
       with:
         root_file: main.tex
-        args: -r .LATEXBUILD
+        args: -r .latexmkrc
     - name: Commit files
       run: |
         git add main.pdf
