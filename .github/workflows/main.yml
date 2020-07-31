@@ -22,7 +22,7 @@ jobs:
       with:
         root_file: main.tex
         args: -r .latexmkrc
-        # extra-tex-package: siunitx here pgf pgfplots csvsimple circuitikz pxchfon bxtexlogo wrapfig framed mdframed hf-tikz uri zref needspace
+        extra-tex-package: siunitx here pgfplots csvsimple circuitikz
     - name: Commit files
       run: |
         git add main.pdf
