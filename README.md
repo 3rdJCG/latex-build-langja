@@ -1,4 +1,4 @@
-# latex-action
+# latex-build-langja
 
 GitHub Action to compile a Japanese LaTeX documents.
 
