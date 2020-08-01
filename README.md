@@ -24,7 +24,7 @@ Includes the [Noto font](https://www.google.com/get/noto/).
 
 * `args`
 
-    The extra arguments to be passed to the LaTeX engine. By default, it is `-pdf -file-line-error -halt-on-error -interaction=nonstopmode`. This tells `latexmk` to use `pdflatex`. Refer to [`latexmk` document](http://texdoc.net/texmf-dist/doc/support/latexmk/latexmk.pdf) for more information.
+    The extra arguments to be passed to the LaTeX engine.
 
 * `extra_tex_packages`
 
