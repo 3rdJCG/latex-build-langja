@@ -20,6 +20,7 @@ jobs:
     - name: Build LaTeX documents
       uses: ./
       with:
+        working_directory: test
         root_file: main.tex
         args: -r .latexmkrc
         extra-tex-package: siunitx here pgfplots csvsimple circuitikz
