@@ -1,4 +1,4 @@
-# latex-build-langja [![GitHub Actions Status](https://github.com/3rdJCG/latex-build-langja/workflows/typeset%20main%20PDF/badge.svg)](https://github.com/3rdJCG/latex-build-langja/actions)
+# latex-build-langja [![GitHub Actions Status](https://github.com/3rdJCG/latex-build-langja/workflows/Build%20test/badge.svg)](https://github.com/3rdJCG/latex-build-langja/actions)
 
 GitHub Action to compile a Japanese LaTeX documents.
 Includes the [Noto font](https://www.google.com/get/noto/).
