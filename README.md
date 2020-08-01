@@ -50,6 +50,10 @@ jobs:
         extra-tex-package: siunitx here pgfplots csvsimple circuitikz
 ```
 
+## Docker image
+This action uses this Docker image [3rdjcg/latex-ci-notojp](https://hub.docker.com/repository/docker/3rdjcg/latex-ci-notojp)
+
+
 ## Forked from 
 
 The initial code is from [xu-cheng/latex-action](https://github.com/xu-cheng/latex-action).
