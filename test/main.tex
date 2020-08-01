@@ -18,7 +18,14 @@
 \section{はじめに}
 	この文書はビルドテスト用文書です。
 
+\section{数式のテスト}
+	これはオイラーの公式である。
+	\begin{equation}
+		\mathrm{e}^{\mathrm{i}\theta} = \cos(\theta) + \mathrm{i}\sin(\theta)
+	\end{equation}
+
 \section{図のテスト}
+	アクティブローパスフィルタの回路図を図\ref{sch:activeLPF}に示す。
 	\begin{figure}[H]
 		\centering
 		\begin{circuitikz}[scale=1.1,/tikz/circuitikz/bipoles/length=1.2cm]
@@ -57,19 +64,5 @@
 		\caption{アクティブローパスフィルタ}
 		\label{sch:activeLPF}
 	\end{figure}
-
-\section{箇条書きのテスト}
-	これは番号を振らない箇条書きです。
-	\begin{itemize}
-		\item ちゃお
-		\item りぼん
-		\item なかよし
-	\end{itemize}
-	これは番号を振る箇条書きです。
-	\begin{enumerate}
-		\item 富士
-		\item 鷹
-		\item なすび
-	\end{enumerate}
 
 \end{document}
