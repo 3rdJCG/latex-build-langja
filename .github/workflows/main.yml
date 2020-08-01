@@ -26,7 +26,7 @@ jobs:
         extra-tex-package: siunitx here pgfplots csvsimple circuitikz
     - name: Commit files
       run: |
-        git add main.pdf
+        git add test/main.pdf
         git config --local user.email "3rdJCG@gmail.com"
         git config --local user.name "3rdJCG"
         git commit -m "main.pdf typeset" -a
