@@ -1,6 +1,7 @@
 # latex-build-langja
 
 GitHub Action to compile a Japanese LaTeX documents.
+Includes the [Noto font](https://www.google.com/get/noto/).
 
 ## Inputs
 
