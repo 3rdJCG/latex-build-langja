@@ -43,7 +43,7 @@ jobs:
     - name: pull from repository
       uses: actions/checkout@master
     - name: Build LaTeX documents
-      uses: ./
+      uses: 3rdJCG/latex-build-langja
       with:
         root_file: main.tex
         args: -r .latexmkrc
