@@ -1,4 +1,4 @@
-FROM 3rdjcg/latex-ci-notojp:latest
+FROM 3rdjcg/latex-ci-notojp:0.1.0-full
 
 WORKDIR /root
 

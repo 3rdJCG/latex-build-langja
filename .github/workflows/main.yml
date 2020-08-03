@@ -23,13 +23,13 @@ jobs:
         working_directory: test
         root_file: main.tex
         args: -r .latexmkrc
-        extra-tex-package: siunitx here pgfplots csvsimple circuitikz
+        # extra-tex-package: siunitx here pgfplots csvsimple circuitikz
     - name: Commit files
       run: |
         git add test/main.pdf
         git config --local user.email "3rdJCG@gmail.com"
         git config --local user.name "3rdJCG"
-        git commit -m "main.pdf typeset" -a
+        git commit -m "Build main.pdf" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
