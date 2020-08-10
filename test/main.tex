@@ -12,7 +12,7 @@
 \begin{document}
 
 \title{ビルドテスト}
-\author{ななしのごんべ}
+\author{Ibuki KOSHINO}
 \maketitle
 
 \section{はじめに}
@@ -25,44 +25,58 @@
 	\end{equation}
 
 \section{図のテスト}
-	アクティブローパスフィルタの回路図を図\ref{sch:activeLPF}に示す。
-	\begin{figure}[H]
-		\centering
-		\begin{circuitikz}[scale=1.1,/tikz/circuitikz/bipoles/length=1.2cm]
-			\draw (0,0)
-			node[op amp](OPA){};
+	\subsection{回路図のテスト}
+		アクティブローパスフィルタの回路図を図\ref{sch:activeLPF}に示す。
+		\begin{figure}[H]
+			\centering
+			\begin{circuitikz}[scale=1.1,/tikz/circuitikz/bipoles/length=1.2cm]
+				\draw (0,0)
+				node[op amp](OPA){};
 
-			\draw (OPA.out)
-			to[short,-] ++(1,0)                     coordinate(Vo)
-			to[open,v^=$V_o$,o-o] ++(0,-1)          coordinate(VoGND)
-			node[ground](GND){};
+				\draw (OPA.out)
+				to[short,-] ++(1,0)                     coordinate(Vo)
+				to[open,v^=$V_o$,o-o] ++(0,-1)          coordinate(VoGND)
+				node[ground](GND){};
 
-			\draw (OPA.-)
-			to[short,-] ++(-0.5,0)
-			to[R,l_=$R_1$,-] ++(-1,0)
-			to[short,-] ++(-0.5,0)                  coordinate(Vi);
+				\draw (OPA.-)
+				to[short,-] ++(-0.5,0)
+				to[R,l_=$R_1$,-] ++(-1,0)
+				to[short,-] ++(-0.5,0)                  coordinate(Vi);
 
-			\draw let \p1=(Vi),\p2=(VoGND) in (Vi)
-			to[open,v=$V_i$,o-o] ++($(0,\y2)-(0,\y1)$)
-			node[ground](GND){};
+				\draw let \p1=(Vi),\p2=(VoGND) in (Vi)
+				to[open,v=$V_i$,o-o] ++($(0,\y2)-(0,\y1)$)
+				node[ground](GND){};
 
-			\draw let \p1=(OPA.-),\p2=(OPA.out) in (OPA.-)
-			to[short,*-] ++(0,1)                    coordinate(overOPAin)
-			to[R,l=$R_2$,-] ++($(\x2,0)-(\x1,0)$)   coordinate(overOPAout)
-			to[short,-*] (OPA.out);
+				\draw let \p1=(OPA.-),\p2=(OPA.out) in (OPA.-)
+				to[short,*-] ++(0,1)                    coordinate(overOPAin)
+				to[R,l=$R_2$,-] ++($(\x2,0)-(\x1,0)$)   coordinate(overOPAout)
+				to[short,-*] (OPA.out);
 
-			\draw let \p1=(overOPAin),\p2=(overOPAout) in (overOPAin)
-			to[short,*-] ++(0,1)
-			to[C,l=$C$] ++($(\x2,0)-(\x1,0)$)
-			to[short,-*] (overOPAout);
+				\draw let \p1=(overOPAin),\p2=(overOPAout) in (overOPAin)
+				to[short,*-] ++(0,1)
+				to[C,l=$C$] ++($(\x2,0)-(\x1,0)$)
+				to[short,-*] (overOPAout);
 
-			\draw let \p1=(OPA.+),\p2=(VoGND) in (OPA.+)
-			to[short,-] ++($(0,\y2)-(0,\y1)$)
-			node[ground](GND){};
+				\draw let \p1=(OPA.+),\p2=(VoGND) in (OPA.+)
+				to[short,-] ++($(0,\y2)-(0,\y1)$)
+				node[ground](GND){};
 
-		\end{circuitikz}
-		\caption{アクティブローパスフィルタ}
-		\label{sch:activeLPF}
-	\end{figure}
+			\end{circuitikz}
+			\caption{アクティブローパスフィルタ}
+			\label{sch:activeLPF}
+		\end{figure}
+
+	\newpage
+	\subsection{ソースコード出力のテスト}
+		これはソースコード出力のテストです。
+		\begin{soucecode}[language=TeX,caption=ソースコード出力のテスト,label=lst:test]
+\begin{document}
+\section{セクション}
+	これはセクションです。
+
+	\subsection{サブセクション}
+		これはサブセクションです。
+\end{document}
+		\end{soucecode}
 
 \end{document}
