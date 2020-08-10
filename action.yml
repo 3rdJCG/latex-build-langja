@@ -17,7 +17,7 @@ inputs:
     description: Install extra packages by tlmgr
 runs:
   using: 'docker'
-  image: 'docker://3rdjcg/latex-ci-notojp:latest'
+  image: 'Dockerfile'
   args:
     - ${{ inputs.root_file }}
     - ${{ inputs.working_directory }}
