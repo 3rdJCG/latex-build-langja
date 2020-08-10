@@ -2,8 +2,8 @@
 
 GitHub Action to compile a Japanese LaTeX documents.
 
-Includes the [Noto font](https://www.google.com/get/noto/)
-and include [plistings](https://github.com/h-kitagawa/plistings) for listings in Japanese environment.
+Includes [Noto font](https://www.google.com/get/noto/)
+and [plistings](https://github.com/h-kitagawa/plistings) for listings in Japanese environment.
 
 ## Inputs
 
