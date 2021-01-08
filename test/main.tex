@@ -7,7 +7,29 @@
 % |	Fonts	: NotoSansCJKjp				|
 % |			  NotoSerifCJKjp			|
 % ---------------------------------------
-\input{settings.tex}
+\documentclass[uplatex,dvipdfmx]{jsarticle}
+
+\usepackage[noto]{pxchfon}	%for use Noto fonts
+\usepackage{here}			%for use figure here
+\usepackage[RPvoltages,americanresistors,americaninductors,europeanvoltage,americancurrents]{circuitikz}
+
+% for use paste soucecode
+\usepackage[cache=false]{minted}
+% \usepackage{listings}
+% \usepackage{plistings}
+% \lstnewenvironment{soucecode}[1][]
+%     {\lstset{
+%         frame=single,
+%         basicstyle=\ttfamily,
+%         numbers=left,
+%         numbersep=10pt,
+%         tabsize=2,
+%         extendedchars=true,
+%         xleftmargin=17pt,
+%         framexleftmargin=17pt,
+%         #1
+%     }
+% }{}
 
 \begin{document}
 
@@ -16,59 +38,59 @@
 \maketitle
 
 \section{はじめに}
-	この文書はビルドテスト用文書です。
+    この文書はビルドテスト用文書です。
 
 \section{数式のテスト}
-	これはオイラーの公式である。
-	\begin{equation}
-		\mathrm{e}^{\mathrm{i}\theta} = \cos(\theta) + \mathrm{i}\sin(\theta)
-	\end{equation}
+    これはオイラーの公式である。
+    \begin{equation}
+        \mathrm{e}^{\mathrm{i}\theta} = \cos(\theta) + \mathrm{i}\sin(\theta)
+    \end{equation}
 
 \section{図のテスト}
-	\subsection{回路図のテスト}
-		アクティブローパスフィルタの回路図を図\ref{sch:activeLPF}に示す。
-		\begin{figure}[H]
-			\centering
-			\begin{circuitikz}[scale=1.1,/tikz/circuitikz/bipoles/length=1.2cm]
-				\draw (0,0)
-				node[op amp](OPA){};
+    \subsection{回路図のテスト}
+        アクティブローパスフィルタの回路図を図\ref{sch:activeLPF}に示す。
+        \begin{figure}[H]
+            \centering
+            \begin{circuitikz}[scale=1.1,/tikz/circuitikz/bipoles/length=1.2cm]
+                \draw (0,0)
+                node[op amp](OPA){};
 
-				\draw (OPA.out)
-				to[short,-] ++(1,0)                     coordinate(Vo)
-				to[open,v^=$V_o$,o-o] ++(0,-1)          coordinate(VoGND)
-				node[ground](GND){};
+                \draw (OPA.out)
+                to[short,-] ++(1,0)                     coordinate(Vo)
+                to[open,v^=$V_o$,o-o] ++(0,-1)          coordinate(VoGND)
+                node[ground](GND){};
 
-				\draw (OPA.-)
-				to[short,-] ++(-0.5,0)
-				to[R,l_=$R_1$,-] ++(-1,0)
-				to[short,-] ++(-0.5,0)                  coordinate(Vi);
+                \draw (OPA.-)
+                to[short,-] ++(-0.5,0)
+                to[R,l_=$R_1$,-] ++(-1,0)
+                to[short,-] ++(-0.5,0)                  coordinate(Vi);
 
-				\draw let \p1=(Vi),\p2=(VoGND) in (Vi)
-				to[open,v=$V_i$,o-o] ++($(0,\y2)-(0,\y1)$)
-				node[ground](GND){};
+                \draw let \p1=(Vi),\p2=(VoGND) in (Vi)
+                to[open,v=$V_i$,o-o] ++($(0,\y2)-(0,\y1)$)
+                node[ground](GND){};
 
-				\draw let \p1=(OPA.-),\p2=(OPA.out) in (OPA.-)
-				to[short,*-] ++(0,1)                    coordinate(overOPAin)
-				to[R,l=$R_2$,-] ++($(\x2,0)-(\x1,0)$)   coordinate(overOPAout)
-				to[short,-*] (OPA.out);
+                \draw let \p1=(OPA.-),\p2=(OPA.out) in (OPA.-)
+                to[short,*-] ++(0,1)                    coordinate(overOPAin)
+                to[R,l=$R_2$,-] ++($(\x2,0)-(\x1,0)$)   coordinate(overOPAout)
+                to[short,-*] (OPA.out);
 
-				\draw let \p1=(overOPAin),\p2=(overOPAout) in (overOPAin)
-				to[short,*-] ++(0,1)
-				to[C,l=$C$] ++($(\x2,0)-(\x1,0)$)
-				to[short,-*] (overOPAout);
+                \draw let \p1=(overOPAin),\p2=(overOPAout) in (overOPAin)
+                to[short,*-] ++(0,1)
+                to[C,l=$C$] ++($(\x2,0)-(\x1,0)$)
+                to[short,-*] (overOPAout);
 
-				\draw let \p1=(OPA.+),\p2=(VoGND) in (OPA.+)
-				to[short,-] ++($(0,\y2)-(0,\y1)$)
-				node[ground](GND){};
+                \draw let \p1=(OPA.+),\p2=(VoGND) in (OPA.+)
+                to[short,-] ++($(0,\y2)-(0,\y1)$)
+                node[ground](GND){};
 
-			\end{circuitikz}
-			\caption{アクティブローパスフィルタ}
-			\label{sch:activeLPF}
-		\end{figure}
+            \end{circuitikz}
+            \caption{アクティブローパスフィルタ}
+            \label{sch:activeLPF}
+        \end{figure}
 
-	\newpage
-	\subsection{ソースコード出力のテスト}
-		これはソースコード出力のテストです。
+    \newpage
+    \subsection{ソースコード出力のテスト}
+        これはplistingsでのソースコード出力のテストです。
 		\begin{soucecode}[language=TeX,caption=基本的な\LaTeX 文書,label=lst:test]
 \begin{document}
 \section{セクション}
@@ -79,5 +101,25 @@
 
 \end{document}
 		\end{soucecode}
+
+        これはmintedでのソースコード出力のテストです。
+        \begin{minted}[linenos,fontsize=\small,highlightlines={7-16}]{tex}
+\documentclass[uplatex,dvipdfmx]{jsarticle}
+
+\title{テスト文書}
+\author{わたし}
+\date{\today}
+
+\begin{document}
+    \maketitle
+
+    \section{セクション}
+        セクションです。
+
+        \subsection{サブセクション}
+            サブセクションです。
+
+\end{document}
+        \end{minted}
 
 \end{document}
