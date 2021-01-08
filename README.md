@@ -3,7 +3,7 @@
 GitHub Action to compile a Japanese LaTeX documents.
 
 Includes [Noto font](https://www.google.com/get/noto/)
-and [plistings](https://github.com/h-kitagawa/plistings) , [minted](https://github.com/gpoore/minted)
+and [plistings](https://github.com/h-kitagawa/plistings), [minted](https://github.com/gpoore/minted)
 for code highlighting in Japanese environment.
 
 ## Inputs
